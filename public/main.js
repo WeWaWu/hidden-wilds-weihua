@@ -30,9 +30,4 @@ async function displaySpecies(facts) {
         "Threats: " + ${facts.threats || "No threat info"}`;
 }
 
-async function searchAndDisplay(term) {
-    const speciesData = await apiSearch(term);
-    displaySpecies(speciesData);
-}
-
-searchAndDisplay();
+displaySpecies();
