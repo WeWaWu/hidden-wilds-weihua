@@ -28,6 +28,7 @@ export default async function search(req) {
     }
 
     catch(error) {
+        console.error(error);
         return new Response(
             JSON.stringify({
                 error: "Could not complete fetch call"
