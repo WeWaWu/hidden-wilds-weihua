@@ -17,12 +17,14 @@ async function apiSearch(searchTerm) {
     return data;
 }
 
-function displaySpecies(facts) {
+async function displaySpecies(facts) {
+    facts = await apiSearch().assessments[0];
+
     document.querySelector(".card-name").innerHTML =
         facts.scientific_name || "No name found";
 
     document.querySelector(".card-text").innerHTML = `
-        "Category: " + ${facts.category || "Unknown"}
+        "Category: " + ${ || "Unknown"}
         "Population trend: " + ${facts.population_trend || "Unknown"}
         "Habitat: " + ${facts.habitat || "No habitat info"}
         "Threats: " + ${facts.threats || "No threat info"}`;
