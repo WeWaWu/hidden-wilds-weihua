@@ -4,11 +4,13 @@ export default async function search(req) {
         const reqData = await req.json();
         console.log(reqData);
 
-        const endpointURL = `https://api.iucnredlist.org/api/v4/species/${encodeURIComponent(reqData.searchTerm)}`;
+        // ${encodeURIComponent(reqData.searchTerm)}
+
+        const endpointURL = `https://api.iucnredlist.org/api/v4/red_list_categories/Ex%2FE`;
         const options = {
             method: "GET",
             headers: {
-                "accept": "*/*",
+                "accept": "application/json",
                 "Authorization": Netlify.env.get("SECRET_API_KEY")
             }
         };
