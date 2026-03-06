@@ -1,0 +1,112 @@
+/* General */
+
+body {
+    background-color: #F5F1ED;
+    font-family: "DM Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Nav-bar */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+header > nav {
+    align-items: center;
+    background-color: #6B8E6E;
+    display: flex;
+    max-height: 5.5rem;
+    overflow: hidden;
+    padding: 20px;
+}
+
+
+#pages {
+    align-items: center;
+    display: flex;
+    list-style-type: none;
+    margin: 0 0 0 10px;
+    padding: 0;
+}
+
+#pages > li {
+    align-items: center;
+    display: flex;
+    margin: 0 10px;
+    padding: 10px;
+}
+
+#pages > li > a {
+    color: #F5F1ED;
+    font-size: 2em;
+    text-decoration: none;
+}
+
+#pages > li > a:hover {
+    color: #2F3E46;
+    font-weight: bolder;
+}
+
+#pages > li > img {
+    width: 8%;
+}
+
+#pages > li > img:hover {
+    content: url(../images/fav-star-red.png);
+}
+
+#favBnt {
+    flex-grow: 100;
+    justify-content: flex-end;
+}
+
+#logo {
+    width: 10%;
+}
+
+#logo > a > img {
+    width: 75%;
+}
+
+/* Hero - Website Description Section */
+
+#hero-div {
+    padding-top: 1rem;
+    text-align: center;
+}
+
+/* Random Cards Section */
+.card {
+    background-color: #6B8E6E;
+}
+
+.card-body {
+    text-align: left;
+    color: #2F3E46;
+}
+
+.row {
+    padding-top: 2.5rem;
+}
+
+.btn-outline-primary {
+    background-color: #F5F1ED;
+    border-color: #2F3E46;
+    color: #2F3E46;
+    margin: 1rem;
+    max-width: 8rem;
+}
+
+.btn-outline-primary:hover {
+    background-color: #2F3E46;
+    border-color: #2F3E46;
+}
+
+footer {
+    text-align: center;
+    padding-bottom: 3ch;
+}
