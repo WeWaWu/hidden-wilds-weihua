@@ -9,7 +9,7 @@ export default async function search(req) {
             method: "GET",
             headers: {
                 "accept": "*/*",
-                "Authorization": Netlify.env.get("SECRET-API-KEY")
+                "Authorization": Netlify.env.get("SECRET_API_KEY")
             }
         };
 
