@@ -1,13 +1,10 @@
-async function apiSearch(searchTerm) {
+async function apiSearch() {
     const netlifyFunctionURL = "/.netlify/functions/search";
     const options = {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({
-            searchTerm: searchTerm
-        })
     };
 
     const response = await fetch(netlifyFunctionURL, options);
@@ -38,7 +35,7 @@ async function apiSpecificSearch(searchTerm) {
 
 async function displaySpecies(facts, specificFact) {
     facts = (await apiSearch()).assessments[0];
-    specificFact = (await apiSpecificSearch()).assessments[0];
+    specificFact = (await apiSpecificSearch(facts.assessment_id));
 
     document.querySelector(".card-name").innerHTML =
         facts.taxon_scientific_name || "No name found";
