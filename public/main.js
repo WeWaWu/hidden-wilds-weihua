@@ -18,10 +18,11 @@ async function apiSearch(searchTerm) {
 }
 
 async function displaySpecies(facts) {
-    facts = (await apiSearch()).assessments[0];
+    facts = await apiSearch()
+    factData = facts.assessments[0];
 
     document.querySelector(".card-name").innerHTML =
-        facts.scientific_name || "No name found";
+        factData.taxon_scientific_name || "No name found";
 
     document.querySelector(".card-text").innerHTML = `
         "Category: " + ${ "Unknown"}
