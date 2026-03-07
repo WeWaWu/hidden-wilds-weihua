@@ -1,9 +1,6 @@
-export default async function search(req) {
+export default async function search() {
     console.log("Search Function RUNNING");
     try {
-        const reqData = await req.json();
-        console.log(reqData);
-
         const endpointURL = `https://api.iucnredlist.org/api/v4/red_list_categories/EN`;
         const options = {
             method: "GET",
