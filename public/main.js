@@ -33,18 +33,18 @@ async function apiSpecificSearch(searchTerm) {
     return data;
 }
 
-async function displaySpecies(facts, specificFact) {
-    facts = (await apiSearch()).assessments[0];
-    specificFact = (await apiSpecificSearch(facts.assessment_id));
+async function displaySpecies() {
+    const facts = (await apiSearch()).assessments[0];
+    const specificFact = (await apiSpecificSearch(facts.assessment_id));
 
     document.querySelector(".card-name").innerHTML =
-        facts.taxon_scientific_name || "No name found";
+        facts.taxon_scientific_name || "Unknown Name";
 
-    document.querySelector(".card-text").innerHTML = `
-        "Category: " + ${ "Unknown"}
-        "Population trend: " + ${facts.population_trend || "Unknown"}
-        "Habitat: " + ${specificFact.habitats || "No habitat info"}
-        "Threats: " + ${facts.threats || "No threat info"}`;
+    document.querySelector(".card-text").innerHTML += `
+        <li>Category: ${ "Unknown"} </li>
+        <li>Population trend: ${facts.population_trend || "Unknown"}</li>
+        <li>Habitat: ${specificFact.habitats[1].description.en || "No habitat info"}</li>
+        <li>Threats: ${facts.threats || "No threat info"}</li>`;
 }
 
 displaySpecies();
