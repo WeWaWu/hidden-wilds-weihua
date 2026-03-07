@@ -18,7 +18,7 @@ async function apiSearch(searchTerm) {
 }
 
 async function displaySpecies(facts) {
-    facts = await apiSearch().assessments[0];
+    facts = (await apiSearch()).assessments[0];
 
     document.querySelector(".card-name").innerHTML =
         facts.scientific_name || "No name found";
