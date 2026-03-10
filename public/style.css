@@ -84,9 +84,26 @@ header > nav {
     background-color: #6B8E6E;
 }
 
+.card-img-top {
+    max-width: 5rem;
+}
+
+.card-img-top:hover {
+    content: url(images/star.png);
+}
+
 .card-body {
     text-align: left;
     color: #2F3E46;
+}
+
+.card-text > li {
+    font-weight: 800;
+    list-style-type: none;
+}
+
+.card-text > li > p {
+    font-weight: 600;
 }
 
 .row {

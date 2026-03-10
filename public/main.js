@@ -34,17 +34,36 @@ async function apiSpecificSearch(searchTerm) {
 }
 
 async function displaySpecies() {
-    const facts = (await apiSearch()).assessments[0];
-    const specificFact = (await apiSpecificSearch(facts.assessment_id));
+    let factsList = (await apiSearch()).assessments;
 
-    document.querySelector(".card-name").innerHTML =
-        facts.taxon_scientific_name || "Unknown Name";
+    factsList = factsList.sort(() => Math.random() - 0.5);
+    factsList = factsList.slice(0, 6);
 
-    document.querySelector(".card-text").innerHTML += `
-        <li>Category: ${ "Unknown"} </li>
-        <li>Population trend: ${facts.population_trend || "Unknown"}</li>
-        <li>Habitat: ${specificFact.habitats[1].description.en || "No habitat info"}</li>
-        <li>Threats: ${facts.threats || "No threat info"}</li>`;
+    const cards = document.querySelectorAll(".card");
+
+    for (let i = 0; i < cards.length; i++) {
+        const facts = factsList[i];
+        const specificFact = await apiSpecificSearch(facts.assessment_id);
+
+        const card = cards[i];
+
+        card.querySelector(".card-name").textContent =
+            facts.taxon_scientific_name || "Unknown Name";
+
+        card.querySelector(".card-text").innerHTML = `
+            <li>Common Name: <p> ${specificFact.taxon.common_names[0]?.name || "Unknown"} </p></li>
+            <li>Population Trend: <p> ${specificFact.population_trend.description.en || "Unknown"} </p></li>
+            <li>Population Size: <p> ${specificFact.supplementary_info.population_size || "Unknown"} </p></li>
+            <li>Habitat/Conditions: <p> ${specificFact.habitats[0]?.description.en || "No habitat info"} </p></li>
+        `;
+
+        const btn = card.querySelector(".btn");
+        btn.addEventListener("click", () => {
+            location.href = specificFact.url;
+        });
+
+        // const fav = card.querySelector(".card-img-top");
+        // fav.addEventListener("click", )
+    }
 }
-
 displaySpecies();
