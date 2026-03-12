@@ -55,13 +55,14 @@ header > nav {
     width: 8%;
 }
 
-#pages > li > img:hover {
-    content: url(../images/fav-star-red.png);
-}
-
-#favBnt {
+#favSideBar {
     flex-grow: 100;
     justify-content: flex-end;
+}
+
+#favSideBar > img:hover {
+    content: url(../images/fav-star-red.png);
+    cursor: pointer;
 }
 
 #logo {
@@ -80,15 +81,16 @@ header > nav {
 }
 
 /* Random Cards Section */
+
 .card {
     background-color: #6B8E6E;
 }
 
-.card-img-top {
+.favorite-star {
     max-width: 5rem;
 }
 
-.card-img-top:hover {
+.favorite-star:hover {
     content: url(images/star.png);
 }
 
