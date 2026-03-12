@@ -65,7 +65,7 @@ async function displaySpecies() {
         // Read More Btn
         const btn = card.querySelector(".btn");
         btn.addEventListener("click", () => {
-            location.href = specificFact.url;
+            btn.href = specificFact.url;
         });
 
         //Fav system
